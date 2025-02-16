@@ -1,0 +1,80 @@
+version: 2
+
+sources:
+  - name: public   # schema in Redshift
+    description: "Public schema containing raw stock data"
+    tables:
+      - name: cleaned_stock_data 
+        description: "Cleaned stock data from S3"
+        columns:
+          - name: date
+            tests:
+              - not_null
+          - name: open
+            tests:
+              - not_null
+          - name: high
+            tests:
+              - not_null
+          - name: low
+            tests:
+              - not_null
+          - name: close
+            tests:
+              - not_null
+          - name: volumn
+            tests:
+              - not_null
+          - name: price_change
+            tests:
+              - not_null
+
+models:
+  - name: stg_stock_data
+    description: "Staging model for stock data"
+    columns:
+      - name: date
+        tests:
+          - not_null
+      - name: open
+        tests:
+          - not_null
+      - name: high
+        tests:
+          - not_null
+      - name: low
+        tests:
+          - not_null
+      - name: close
+        tests:
+          - not_null
+      - name: volumn
+        tests:
+          - not_null
+      - name: price_change
+        tests:
+          - not_null
+  - name: dim_stock_data
+    description: "Staging model for stock data"
+    columns:
+      - name: date
+        tests:
+          - not_null
+      - name: open
+        tests:
+          - not_null
+      - name: high
+        tests:
+          - not_null
+      - name: low
+        tests:
+          - not_null
+      - name: close
+        tests:
+          - not_null
+      - name: volumn
+        tests:
+          - not_null
+      - name: price_change
+        tests:
+          - not_null

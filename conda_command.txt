@@ -1,0 +1,15 @@
+# Set environment variables
+# To make your changes take effect please reactivate your environment
+conda env config vars set REDSHIFT_HOST=your_redshift_endpoint
+conda env config vars set REDSHIFT_PORT=5439
+conda env config vars set REDSHIFT_DB=your_database_name
+conda env config vars set REDSHIFT_USER=your_username
+conda env config vars set REDSHIFT_PASSWORD=your_password
+
+conda env config vars unset
+
+# Pyspark read file from aws s3
+下载 hadoop-aws-3.3.2.jar 和 aws-java-sdk-bundle-1.12.262.jar
+下载 JAR 文件 并放到 Spark 的 jars 目录下（如果没有，可以新建）。
+设置环境变量
+set SPARK_CLASSPATH=C:\spark\jars\hadoop-aws-3.3.2.jar;C:\spark\jars\aws-java-sdk-bundle-1.12.262.jar
