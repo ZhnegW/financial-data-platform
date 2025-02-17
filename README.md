@@ -1,3 +1,3 @@
 # financial-data-platform
 
-![image] (financial_data_platform.png)
+![image] ((https://github.com/ZhnegW/financial-data-platform/blob/main/financial_data_platform.png)
