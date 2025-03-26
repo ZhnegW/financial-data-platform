@@ -1,0 +1,74 @@
+version: 2
+
+sources:
+  - name: public   # schema in Redshift
+    description: "Public schema containing raw stock data"
+    tables:
+      - name: stock_daily_data 
+        description: "Processed stock data from S3"
+        columns:
+          - name: symbol
+            tests:
+              - not_null
+              - unique:
+                  column_names: [symbol, date]
+          - name: date
+            tests:
+              - not_null
+          - name: open
+            tests:
+              - not_null
+          - name: high
+            tests:
+              - not_null
+          - name: low
+            tests:
+              - not_null
+          - name: close
+            tests:
+              - not_null
+          - name: volume
+            tests:
+              - not_null
+          - name: price_change
+            tests:
+              - not_null
+          - name: daily_return
+            tests:
+              - not_null
+          - name: processing_date
+            tests:
+              - not_null
+            
+      - name: dim_company_info 
+        description: "company information"
+        columns:
+          - name: symbol
+            tests:
+              - not_null
+              - unique
+          - name: name
+            tests:
+              - not_null
+          - name: sector
+            tests:
+              - not_null
+          - name: industry
+            tests:
+              - not_null
+          - name: country
+            tests:
+              - not_null
+          - name: market_cap
+            tests:
+              - not_null
+          - name: pe_ratio
+            tests:
+              - not_null
+          - name: dividend_yield
+            tests:
+              - not_null
+          - name: processing_date
+            tests:
+              - not_null
+

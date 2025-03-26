@@ -23,6 +23,7 @@ df = pd.DataFrame(data["Time Series (Daily)"]).T
 df.reset_index(inplace=True)
 df.columns = ["date", "open", "high", "low", "close", "volume"]
 
+
 # store as CSV
 os.makedirs("data", exist_ok=True)  # make sure data folder exists
 df.to_csv("data/raw_stock_data.csv", index=False)
@@ -33,6 +34,6 @@ s3 = boto3.client(
     aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY")
 )
-s3.upload_file("data/raw_stock_data.csv", os.getenv("S3_BUCKET_NAME"), "raw_stock_data.csv")
+s3.upload_file("data/stock_prices_daily.csv", os.getenv("S3_BUCKET_NAME"), "AAPL.csv")
 
 print("Data has been successfully acquired and uploaded to S3！")

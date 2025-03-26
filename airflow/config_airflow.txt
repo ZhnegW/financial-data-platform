@@ -1,0 +1,9 @@
+# Configure the mail server in airflow.cfg
+[smtp]
+smtp_host = your_smtp_host
+smtp_starttls = True
+smtp_ssl = False
+smtp_user = your_email
+smtp_password = your_password
+smtp_port = 587
+smtp_mail_from = your_email
